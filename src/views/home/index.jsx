@@ -1,8 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import useHome from "./useHome";
 
 const Home = () => {
   useHome();
+   
+  const navigate = useNavigate(); 
 
   return (
     <div>
@@ -31,11 +34,11 @@ const Home = () => {
             </div>
             <div className="util">
               <i className="fa fa-search"> Search</i>
-              <i className="fa fa-tags"> Offers</i>
               <i className="fa fa-cart-plus" id="cart-plus">
                 {" "}
                 0 Items
               </i>
+              <i onClick={() => navigate('/signup')} className="fa fa-user-circle"> Sign up</i>
             </div>
           </div>
           <div id="food-items" className="d-food-items">
@@ -84,11 +87,13 @@ const Home = () => {
 
         <div id="cart">
           <div className="taste-header">
-            <div className="user">
-              <i className="fa fa-user-circle" id="circle">
+            <div onClick={() => navigate('/login')} className="user">
+              
+              <i className="fa fa-sign-in" id="circle">
                 {" "}
-                Account
+                Login
               </i>
+              
             </div>
           </div>
           <div id="category-list">
